@@ -25,6 +25,7 @@ body{background:#fffdf2}.side{background:#fff7d8}.metric,.panel,.company-tile{bo
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 (()=>{'use strict';
+const $=id=>document.getElementById(id);
 const cfg=window.DAYFLOW_CONFIG||{};
 const configured=Boolean(cfg.supabaseUrl&&cfg.supabaseAnonKey&&!cfg.supabaseUrl.includes('YOUR_'));
 const db=configured?createClient(cfg.supabaseUrl,cfg.supabaseAnonKey):null;
@@ -43,7 +44,6 @@ $('refreshBtn').onclick=()=>loadCloud();
 
 const COMPANIES=['Ghana · Alos','Ghana · DiagnoMedics','Botswana · LEMS','Rwanda · Crown','Gambia · Ecomed','Liberia · Sisie','Cape Verde · Ven-Bios','Sierra Leone','Internal / HQ','Others'];
 const TYPES=['Follow-up','Payment / AR','Sales / Order','Shipment / Logistics','Meeting','Product / Marketing','Regulatory','Technical Support','Others'];
-const $=id=>document.getElementById(id);
 const localDate=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const uid=()=>globalThis.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(36).slice(2);
 let tasks=[],selectedDate=localDate(),view='today',selectedCompany=null,editId=null;

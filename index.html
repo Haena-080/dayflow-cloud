@@ -73,7 +73,7 @@ $('signupBtn').onclick=async()=>{if(!db)return alert('config.js 설정을 먼저
 $('logoutBtn').onclick=async()=>{if(db)await db.auth.signOut();};
 $('refreshBtn').onclick=()=>loadCloud();
 
-const COMPANIES=['Ghana · Alos','Ghana · DiagnoMedics','Botswana · LEMS','Rwanda · Crown','Gambia · Ecomed','Liberia · Sisie','Cape Verde · Ven-Bios','Sierra Leone','Internal / HQ','Others'];
+const COMPANIES=['Ghana · Alos','Ghana · DiagnoMedics','Botswana · LEMS','Rwanda · Crown','Gambia · Ecomed','Liberia · Sisie','Cape Verde · Ven-Bios','São Tomé and Príncipe · Clinica Ars Medica','Sierra Leone','Internal / HQ','Others'];
 const TYPES=['Follow-up','Payment / AR','Sales / Order','Shipment / Logistics','Meeting','Product / Marketing','Regulatory','Technical Support','Others'];
 const localDate=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const uid=()=>globalThis.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(36).slice(2);
